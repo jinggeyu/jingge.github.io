@@ -1,1 +1,2 @@
 movie.mp4 filter=lfs diff=lfs merge=lfs -text
+ss.mp4 filter=lfs diff=lfs merge=lfs -text
