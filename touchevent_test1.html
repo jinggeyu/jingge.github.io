@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Touch Test</title>
+</head>
+<body>
+    <h1>Multi-Touch Test</h1>
+    <p>Use two or more fingers to move the box below:</p>
+    <div id="box" style="width: 700px; height: 1000px; background-color: red; position: absolute;"></div>
+    <script>
+        var box = document.getElementById("box");
+        var touches = [];
+        var type = "";
+
+        function handleTouchStart(event) {
+            event.preventDefault();
+            touches = event.changedTouches;
+            type = "Down";
+            updateBoxPosition();
+        }
+
+        function handleTouchMove(event) {
+            event.preventDefault();
+            touches = event.changedTouches;
+            type = "Move";
+            updateBoxPosition();
+        }
+
+        function handleTouchEnd(event) {
+            event.preventDefault();
+            touches = event.changedTouches;
+            type = "Up";
+            updateBoxPosition();
+        }
+
+        function updateBoxPosition() {
+            var numTouches = touches.length;
+            var touchInfo = "";
+            for (var i = 0; i < numTouches; i++) {
+                touchInfo += "Touch " + (i + 1) + ": (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
+            }
+            box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>TouchType: " + type + "<br>" + touchInfo;
+        }
+
+        box.addEventListener("touchstart", handleTouchStart, false);
+        box.addEventListener("touchmove", handleTouchMove, false);
+        box.addEventListener("touchend", handleTouchEnd, false);
+    </script>
+</body>
+</html>
