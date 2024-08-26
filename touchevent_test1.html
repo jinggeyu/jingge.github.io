@@ -10,27 +10,39 @@
     <div id="box" style="width: 700px; height: 1000px; background-color: red; position: absolute;"></div>
     <script>
         var box = document.getElementById("box");
-        var touches = [];
-        var type = "";
 
+        var touches = [];
+        var touchStatus = [];
+        var type = "";
+        
         function handleTouchStart(event) {
             event.preventDefault();
             touches = event.changedTouches;
             type = "Down";
+            touchStatus = []; // 重置touchStatus数组
+            for (var i = 0; i < touches.length; i++) {
+                touchStatus[touches[i].identifier] = "Down";
+            }
             updateBoxPosition();
         }
-
+        
         function handleTouchMove(event) {
             event.preventDefault();
             touches = event.changedTouches;
             type = "Move";
+            for (var i = 0; i < touches.length; i++) {
+                touchStatus[touches[i].identifier] = "Move";
+            }
             updateBoxPosition();
         }
-
+        
         function handleTouchEnd(event) {
             event.preventDefault();
             touches = event.changedTouches;
             type = "Up";
+            for (var i = 0; i < touches.length; i++) {
+                touchStatus[touches[i].identifier] = "Up";
+            }
             updateBoxPosition();
         }
 
@@ -38,11 +50,12 @@
             var numTouches = touches.length;
             var touchInfo = "";
             for (var i = 0; i < numTouches; i++) {
-                touchInfo += "Touch[" + (i + 1) + "]: id " + touches[i].identifier  + ", : (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
+                touchInfo += "Touch[" + (i + 1) + "]: id " + touches[i].identifier  + ", status: " + touchStatus[touchId] + " (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
             }
             box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>TouchType: " + type + "<br>" + touchInfo;
+            touchStatus = []; // 重置touchStatus数组
         }
-
+        
         box.addEventListener("touchstart", handleTouchStart, false);
         box.addEventListener("touchmove", handleTouchMove, false);
         box.addEventListener("touchend", handleTouchEnd, false);
