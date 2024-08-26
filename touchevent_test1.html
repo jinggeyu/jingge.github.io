@@ -50,7 +50,8 @@
             var numTouches = touches.length;
             var touchInfo = "";
             for (var i = 0; i < numTouches; i++) {
-                touchInfo += "Touch[" + (i + 1) + "]: id " + touches[i].identifier  + ", status: " + touchStatus[touchId] + " (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
+                var id = touches[i].identifier;
+                touchInfo += "Touch[" + (i + 1) + "]: id " + id  + ", status: " + touchStatus[id] + " (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
             }
             box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>TouchType: " + type + "<br>" + touchInfo;
             touchStatus = []; // 重置touchStatus数组
