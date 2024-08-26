@@ -34,9 +34,9 @@
             var numTouches = touches.length;
             var touchInfo = "";
             for (var i = 0; i < numTouches; i++) {
-                touchInfo += "Touch " + (i + 1) + ": (" + touches[i].pageX + ", " + touches[i].pageY + ")\n";
+                touchInfo += "Touch " + (i + 1) + ": (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
             }
-            box.innerHTML = "Number of fingers: " + numTouches + "\n" + touchInfo;
+            box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>" + touchInfo;
         }
 
         box.addEventListener("touchstart", handleTouchStart, false);
