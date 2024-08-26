@@ -31,19 +31,8 @@
         }
 
         function updateBoxPosition() {
-            var numTouches = touches.length;
-            if (numTouches > 0) {
-                var x = 0, y = 0;
-                for (var i = 0; i < numTouches; i++) {
-                    x += touches[i].pageX;
-                    y += touches[i].pageY;
-                }
-                x /= numTouches;
-                y /= numTouches;
-                box.style.left = (x - 50) + "px";
-                box.style.top = (y - 50) + "px";
-                box.innerHTML = "Number of fingers: " + numTouches;
-            }
+            var numTouches = touches.length; 
+            box.innerHTML = "Number of fingers: " + numTouches;
         }
 
         box.addEventListener("touchstart", handleTouchStart, false);
