@@ -31,8 +31,11 @@
         }
 
         function updateBoxPosition() {
-            var numTouches = touches.length; 
-            box.innerHTML = "Number of fingers: " + numTouches;
+            var numTouches = touches.length;
+            for (var i = 0; i < numTouches; i++) {
+                touchInfo += "Touch " + (i + 1) + ": (" + touches[i].pageX + ", " + touches[i].pageY + ")\n";
+            }
+            box.innerHTML = "Number of fingers: " + numTouches + "\n" + touchInfo;
         }
 
         box.addEventListener("touchstart", handleTouchStart, false);
