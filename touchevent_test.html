@@ -14,7 +14,7 @@
 
         function handleTouchStart(event) {
             event.preventDefault();
-            touches = event.touches;
+            touches = event.changedTouches;
             updateBoxPosition();
         }
 
