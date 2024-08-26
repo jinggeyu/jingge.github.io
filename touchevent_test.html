@@ -11,22 +11,26 @@
     <script>
         var box = document.getElementById("box");
         var touches = [];
+        var type = "";
 
         function handleTouchStart(event) {
             event.preventDefault();
             touches = event.touches;
+            type = "Down";
             updateBoxPosition();
         }
 
         function handleTouchMove(event) {
             event.preventDefault();
             touches = event.touches;
+            type = "Move";
             updateBoxPosition();
         }
 
         function handleTouchEnd(event) {
             event.preventDefault();
             touches = event.touches;
+            type = "Up";
             updateBoxPosition();
         }
 
@@ -36,7 +40,7 @@
             for (var i = 0; i < numTouches; i++) {
                 touchInfo += "Touch " + (i + 1) + ": (" + touches[i].pageX + ", " + touches[i].pageY + ")<br>";
             }
-            box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>" + touchInfo;
+            box.innerHTML = "<span style='color: white; font-size: 20px;'>Number of fingers: " + numTouches + "<br>" + type + "<br>" + touchInfo;
         }
 
         box.addEventListener("touchstart", handleTouchStart, false);
