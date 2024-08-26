@@ -20,13 +20,13 @@
 
         function handleTouchMove(event) {
             event.preventDefault();
-            touches = event.touches;
+            touches = event.changedTouches;
             updateBoxPosition();
         }
 
         function handleTouchEnd(event) {
             event.preventDefault();
-            touches = event.touches;
+            touches = event.changedTouches;
             updateBoxPosition();
         }
 
