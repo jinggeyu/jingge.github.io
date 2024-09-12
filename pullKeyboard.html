@@ -27,6 +27,7 @@
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -34,10 +35,10 @@
     <div class="container">
         <h1>Test Page for Mobile Keyboard</h1>
         <label for="inputField">Input Field:</label>
-        <input type="text" id="inputField" placeholder="Tap to type...">
+        <input type="text" id="inputField" placeholder="Tap to type..." autocomplete="off">
         
         <label for="textArea">Text Area:</label>
-        <textarea id="textArea" rows="4" placeholder="Tap to type..."></textarea>
+        <textarea id="textArea" rows="4" placeholder="Tap to type..." autocomplete="off"></textarea>
     </div>
 
     <script>
@@ -48,6 +49,14 @@
 
         document.getElementById('textArea').addEventListener('focus', () => {
             console.log('Text Area focused');
+        });
+
+        // Ensure no JavaScript is preventing default behavior
+        document.getElementById('inputField').addEventListener('focus', (event) => {
+            event.preventDefault();
+        });
+        document.getElementById('textArea').addEventListener('focus', (event) => {
+            event.preventDefault();
         });
     </script>
 </body>
