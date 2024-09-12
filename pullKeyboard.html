@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Mobile Keyboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Mobile Keyboard</h1>
+        <label for="inputField">Input Field:</label>
+        <input type="text" id="inputField" placeholder="Tap to type...">
+        
+        <label for="textArea">Text Area:</label>
+        <textarea id="textArea" rows="4" placeholder="Tap to type..."></textarea>
+    </div>
+
+    <script>
+        // Optionally, you can add some JavaScript to focus the input fields programmatically
+        document.getElementById('inputField').addEventListener('focus', () => {
+            console.log('Input Field focused');
+        });
+
+        document.getElementById('textArea').addEventListener('focus', () => {
+            console.log('Text Area focused');
+        });
+    </script>
+</body>
+</html>
