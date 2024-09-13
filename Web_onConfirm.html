@@ -1,0 +1,25 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+</head>
+
+<body>
+<h1>WebView onConfirm Demo</h1>
+<button onclick="myFunction()">Click here</button>
+<p id="demo"></p>
+<script>
+    function myFunction() {
+      let x;
+      let r = confirm("click button!");
+      if (r == true) {
+        x = "ok";
+      } else {
+        x = "cancel";
+      }
+      document.getElementById("demo").innerHTML = x;
+    }
+</script>
+</body>
+</html>

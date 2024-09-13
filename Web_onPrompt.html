@@ -1,0 +1,21 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+</head>
+
+<body>
+<h1>WebView onPrompt Demo</h1>
+<button onclick="myFunction()">Click here</button>
+<p id="demo"></p>
+<script>
+    function myFunction() {
+      let message = prompt("Message info", "Hello World");
+      if (message != null && message != "") {
+        document.getElementById("demo").innerHTML = message;
+      }
+    }
+</script>
+</body>
+</html>
