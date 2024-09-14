@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalist Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 5px;
+            margin-top: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Datalist Example</h1>
+
+<form>
+    <label for="browser">Choose your favorite browser:</label>
+    <input list="browsers" id="browser" name="browser" placeholder="Select or type...">
+    <datalist id="browsers">
+        <option value="Google Chrome">
+        <option value="Mozilla Firefox">
+        <option value="Safari">
+        <option value="Microsoft Edge">
+        <option value="Opera">
+        <option value="Brave">
+    </datalist>
+
+    <label for="country">Choose your country:</label>
+    <input list="countries" id="country" name="country" placeholder="Select or type...">
+    <datalist id="countries">
+        <option value="United States">
+        <option value="Canada">
+        <option value="United Kingdom">
+        <option value="Australia">
+        <option value="India">
+        <option value="Germany">
+    </datalist>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
