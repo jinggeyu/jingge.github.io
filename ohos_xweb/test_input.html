@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>示例网页</title>
+    <style>
+      form {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+      }
+      input[type="text"] {
+        width: 200px;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        padding: 5px 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <p>这是一个示例网页。</p>
+    <p>在这里可以放置各种内容。</p>
+    <form>
+      <label for="inputBox">请输入内容：</label>
+      <input type="text" id="inputBox" name="inputBox">
+      <br>
+      <input type="submit" value="提交">
+    </form>
+  </body>
+</html>
