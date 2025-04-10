@@ -1,34 +1,63 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<html style="background: #ffffff;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listbox 示例</title>
-    <style>
-        /* 样式设置 */
-        .listbox {
-            width: 400px;
-            height: 300px;
-            border: 1px solid #ccc;
-            overflow-y: auto; /* 允许垂直滚动 */
-        }
-    </style>
+	<style id="monica-reading-highlight-style">
+		.monica-reading-highlight {
+		  animation: fadeInOut 1.5s ease-in-out;
+		}
+		
+		@keyframes fadeInOut {
+		  0%, 100% { background-color: transparent; }
+		  30%, 70% { background-color: rgba(2, 118, 255, 0.20); }
+		}
+	</style>
 </head>
-<body>
-    <h1>选择你的选项</h1>
-    <div role="listbox" class="listbox" aria-label="选项列表">
-        <select multiple>
-            <option value="option1">选项 1</option>
-            <option value="option2">选项 2</option>
-            <option value="option3">选项 3</option>
-            <option value="option4">选项 4</option>
-            <option value="option5">选项 5</option>
-            <option value="option6">选项 6</option>
-            <option value="option7">选项 7</option>
-            <option value="option8">选项 8</option>
-            <option value="option9">选项 9</option>
-            <option value="option10">选项 10</option>
-        </select>
-    </div>
+<body monica-id="ofpnmcalabcbjgholdjcjblkibolbppb" monica-version="7.9.1">
+	<h2 style="text-align:center">OPEN SOURCE SOFTWARE NOTICE</h2>
+	<div data-v-7a1af0f9="" class="payContainer">
+		<div data-v-bf83ee4a="" data-v-7a1af0f9="" class="split"></div> <!---->
+		<div data-v-4f83490a="" data-v-7a1af0f9="" class="vip-pay-content" style="padding-left: 24px !important; padding-right: 24px !important;">
+			<div data-v-4f83490a="" role="listbox" class="vip-pay-tools">
+				<div data-v-4f83490a="" id="gen_payTypeBar-payment-1" data-type="payment" data-payment="Test" data-id="Test" data-position="1" data-page="vip" data-packageid="1000003" data-action="payType" order-souce-type="vip_mycenter.column@1000003@2014608379506328833" role="button"
+					aria-selected="true" aria-label="未选中：Test1，单指双击即可执行" class="tools-list paymentV108 paymentWidth-normal">
+					<div data-v-4f83490a="" aria-hidden="false" class="pay-row"><!----> <!---->
+						<div data-v-4f83490a="" class="Test-pay-icon new-pay-icon"></div>
+						<div data-v-4f83490a="" class="tools-name">
+							<p data-v-4f83490a="">Test1</p>
+						</div> <!----> <!---->
+						<div data-v-4f83490a="" class="tools-uncheck tools-check-basic"></div>
+					</div>
+					<div data-v-4f83490a="" role="separator" class="divider-line"></div>
+				</div>
+				<div data-v-4f83490a="" id="gen_payTypeBar-payment-2" data-type="payment" data-payment="AliPay" data-id="AliPay" data-position="2" data-page="vip" data-packageid="1000003" data-action="payType" order-souce-type="vip_mycenter.column@1000003@2014608379506328833" role="button"
+					aria-selected="true" aria-label="已选中：Test2" class="tools-list paymentV108 paymentWidth-normal">
+					<div data-v-4f83490a="" aria-hidden="false" class="pay-row"><!---->
+						<div data-v-4f83490a="" class="tools-icon"><img data-v-4f83490a="" src="pic/icon_ali_wallet.png" alt=""></div>
+						<div data-v-4f83490a="" class="tools-name">
+							<p data-v-4f83490a="">Test2</p>
+						</div> <!----> <!---->
+						<div data-v-4f83490a="" class="tools-checked tools-check-basic"></div>
+					</div>
+					<div data-v-4f83490a="" role="separator" class="divider-line"></div>
+				</div>
+				<div data-v-4f83490a="" id="gen_payTypeBar-payment-3" data-type="payment" data-payment="TenPay" data-id="TenPay" data-position="3" data-page="vip" data-packageid="1000003" data-action="payType" order-souce-type="vip_mycenter.column@1000003@2014608379506328833" role="button"
+					aria-selected="true" aria-label="未选中：Test3，单指双击即可执行" class="tools-list paymentV108 paymentWidth-normal">
+					<div data-v-4f83490a="" aria-hidden="false" class="pay-row">
+						<div data-v-4f83490a="" class="tools-icon"><img data-v-4f83490a="" src="pic/icon_wx_wallet.png" alt=""></div>
+						<div data-v-4f83490a="" class="tools-name">
+							<p data-v-4f83490a="">Test3</p>
+						</div> <!----> <!----> <!---->
+						<div data-v-4f83490a="" class="tools-uncheck tools-check-basic"></div>
+					</div> <!---->
+				</div>
+			</div>
+			<div data-v-4f83490a="" id="gen_payTypeBar-payment-more_btn" data-type="payment" data-id="PayTypePolicy" data-payment="PayTypePolicy" data-position="4" data-page="vip" data-packageid="1000003" data-action="payType" order-souce-type="vip_mycenter.column@1000003@2014608379506328833"
+				role="button" aria-label="更多" class="more paymentV108">
+				<div data-v-4f83490a="" aria-hidden="true" class="desc">更多</div>
+				<div data-v-4f83490a="" aria-hidden="true" class="right-arrow img-mirror"></div>
+			</div>
+		</div>
+	</div>
+	<deepl-input-controller></deepl-input-controller>
+	<div id="monica-content-root" class="monica-widget" style="pointer-events: auto;"></div>
 </body>
 </html>
