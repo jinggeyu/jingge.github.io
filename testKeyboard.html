@@ -1,0 +1,167 @@
+<html lang="zh-cmn-Hans"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui,shrink-to-fit=no">
+  <title>授权微信登录</title>
+  <link rel="stylesheet" href="https://dc.cbg.163.com/wx_static//dist/common-chunks.css?v=20200422">
+  <link rel="stylesheet" href="https://dc.cbg.163.com/wx_static//dist/bind_urs_login_page.css?v=20200422">
+<script async="" type="text/javascript" src="https://cbg.res.netease.com/res/cbg-water-drop/??lib/vue.js,urs/inline-login.js,mobile/navbar.js"></script><style>.container_icAQG {
+  width: 100%;
+}</style><style>.holder_1hisL,
+.cnt_3wkKD {
+  height: 2.25rem;
+}
+.cnt_3wkKD {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0 auto;
+  background: #fff;
+}
+.cnt_3wkKD.borderBottom_18uwd {
+  position: relative;
+  position: fixed;
+}
+.cnt_3wkKD.borderBottom_18uwd:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.cnt_3wkKD.borderBottom_18uwd:after {
+    background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="1"><rect x="0" y="0.5" width="100%" height="1" fill="#e5e5e5" /></svg>') no-repeat;
+}
+}
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+.cnt_3wkKD.borderBottom_18uwd:after {
+    background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="1"><rect x="0" y="0.3333333333333333" width="100%" height="1" fill="#e5e5e5" /></svg>') no-repeat;
+}
+}
+.center_B9312 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+.title_3pQpz {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 2.25rem;
+  text-align: center;
+}
+.left_3cgdG,
+.right_1QC2O {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.left_3cgdG {
+  left: 0;
+}
+.right_1QC2O {
+  right: 0;
+}
+.backIcon_3vyXl {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjgxNiAzMWwxMi41ODUgMTMuMjI3YTEuNTM4IDEuNTM4IDAgMCAxLS4wMjcgMi4xNDcgMS40NjMgMS40NjMgMCAwIDEtMi4wOTQtLjAyNkwxNC4zNzUgMzAuNjgzYTEuNTM4IDEuNTM4IDAgMCAxLS4yOC0xLjcxYy4wOTMtLjI0OC4yNS0uNDY1LjQ1MS0uNjNMMjkuMDYgMTMuNjE0YTEuNDg5IDEuNDg5IDAgMCAxIDIuMTE0LS4wMDhjLjU4Ny41ODcuNTkgMS41MzguMDA4IDIuMTI5TDE5LjA5NSAyOEg0NC41YTEuNSAxLjUgMCAwIDEgMCAzSDE4LjgxNnoiIGZpbGw9IiMzMzMiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==) no-repeat;
+  background-size: 100% 100%;
+  border-left: 0.2rem solid transparent;
+}
+.black_1AyPx .backIcon_3vyXl,
+.transparent-white_2q7Am .backIcon_3vyXl {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE4LjgxNiAzMWwxMi41ODUgMTMuMjI3YTEuNTM4IDEuNTM4IDAgMCAxLS4wMjcgMi4xNDcgMS40NjMgMS40NjMgMCAwIDEtMi4wOTQtLjAyNkwxNC4zNzUgMzAuNjgzYTEuNTM4IDEuNTM4IDAgMCAxLS4yOC0xLjcxYy4wOTMtLjI0OC4yNS0uNDY1LjQ1MS0uNjNMMjkuMDYgMTMuNjE0YTEuNDg5IDEuNDg5IDAgMCAxIDIuMTE0LS4wMDhjLjU4Ny41ODcuNTkgMS41MzguMDA4IDIuMTI5TDE5LjA5NSAyOEg0NC41YTEuNSAxLjUgMCAwIDEgMCAzSDE4LjgxNnoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+}
+.black_1AyPx .title_3pQpz,
+.transparent-white_2q7Am .title_3pQpz {
+  color: #fff;
+}
+.black_1AyPx .cnt_3wkKD {
+  background: #333;
+}
+.transparent-white_2q7Am .cnt_3wkKD {
+  background: transparent;
+}
+.transparent-white_2q7Am .cnt_3wkKD,
+.transparent-black_3LSsG .cnt_3wkKD {
+  background: transparent;
+}</style><script async="" type="text/javascript" src="//urswebzj.nosdn.127.net/webzj_cdn101/message.js"></script><link rel="stylesheet" href="https://cbg.res.netease.com/res/cbg-water-drop/urs/inline-login/css/login-without-unlogin.css"></head>
+<body>
+  <div class="container">
+    <div><div><div class="holder_1hisL"></div><div class="cnt_3wkKD site-navbar borderBottom_18uwd"><div class="center_B9312" style="width: 50%;"><div class="title_3pQpz">登录</div></div><div class="left_3cgdG"><a href="javascript:;" class="backIcon_3vyXl"></a></div><div class="right_1QC2O"><!----></div></div></div><div><div id="urs-inline-login-1753188603733" class="container_icAQG" style="width: 388px; height: 349px;"><iframe name="" frameborder="0" id="x-URS-iframe1753188603872.0234" scrolling="no" style="width: 100%; height: 100%; border: none; background: none;" src="https://dl.reg.163.com/webzj/v1.0.1/pub/index2_new.html?cd=https%3A%2F%2Fcbg.res.netease.com%2Fres%2Fcbg-water-drop%2Furs%2F&amp;cf=inline-login%2Fcss%2Flogin-without-unlogin.css&amp;MGID=1753188603872.0234&amp;wdaId=&amp;pkid=aqpOBwV&amp;product=cbg"></iframe></div></div></div>
+  </div>
+  <script>var WechatResUrl = 'https://dc.cbg.163.com/wx_static/';</script>
+  <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="https://cbg.res.netease.com/res/cbg-water-drop/core.js" id="cbgWaterDrop"></script>
+  <script src="https://dc.cbg.163.com/wx_static//dist/common-chunks.js?v=20200422"></script>
+  <script src="https://dc.cbg.163.com/wx_static//dist/bind_urs_login_page.js?v=20200422"></script>
+  <script>
+    cbgWaterDrop.use(['lib/vue', 'urs/inline-login', 'mobile/navbar'], function(Vue, inlineLogin, navbar) {
+
+      function getUrlParam(name, url = location.search) {
+        var result = new RegExp( '[?&]' + name + '=([^&]*)').exec(url);
+        return result ? decodeURIComponent(result[1]) : '';
+      }
+
+      var app = new Vue({
+        el: '#main',
+        components: { 'inline-login': inlineLogin, 'navbar': navbar },
+        render: function(h) {
+          const nav = h('navbar', {
+            props: {
+              borderBottom: true,
+              title: '登录',
+              clsNav: 'site-navbar',
+            }
+          });
+
+          const urs = h('inline-login', {
+            props: {
+              withUnLogin: false,
+            },
+            on: {
+              login: function(username) {
+                // location.replace('https://dc.cbg.163.com/cgi/wx/bind_urs_login_suc');
+                let backUrl = 'https://dc.cbg.163.com/cgi/wx/bind_urs_list';
+                const is_product_req_login = getUrlParam('is_product_req_login'); // 这个是服务端自己注入的，用来跳转登录的；反正就是很绕
+                const productBackUrl = getUrlParam('product_back_url');  // 这里是H5那边传过来的参数
+                if(is_product_req_login && productBackUrl) {
+                  backUrl = productBackUrl;
+                } else if(productBackUrl) {
+                  backUrl = `${backUrl}?product_back_url=${encodeURIComponent(productBackUrl)}`;
+                }
+
+                let redirect_url = `/cgi/wx/bind_urs_login_suc?wx_back_url=${encodeURIComponent(backUrl)}`;
+                if(is_product_req_login){
+                  redirect_url = redirect_url + "&is_product_req_login=" + is_product_req_login
+                }
+                location.replace(redirect_url);
+              }
+            }
+          });
+
+          return h('div', {}, [
+            nav, urs
+          ]);
+        }
+      });
+     
+    });
+  </script>
+
+</body></html>
