@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机号输入示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>请输入您的手机号</h2>
+        <form id="phoneForm">
+            <div class="form-group">
+                <label for="phoneNumber">手机号码</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" 
+                       placeholder="请输入11位手机号" maxlength="11" 
+                       pattern="[0-9]{11}" required
+                       title="请输入11位数字的手机号码">
+                <div id="phoneError" class="error">请输入有效的11位手机号码</div>
+            </div>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('phoneForm').addEventListener('submit', function(e) {
+            const phoneInput = document.getElementById('phoneNumber');
+            const errorElement = document.getElementById('phoneError');
+            
+            // 简单的验证
+            if (!/^1[3-9]\d{9}$/.test(phoneInput.value)) {
+                e.preventDefault(); // 阻止表单提交
+                errorElement.style.display = 'block';
+                phoneInput.focus();
+            } else {
+                errorElement.style.display = 'none';
+                alert('手机号验证通过: ' + phoneInput.value);
+                // 这里可以添加实际提交逻辑
+            }
+        });
+
+        // 实时验证输入
+        document.getElementById('phoneNumber').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>
