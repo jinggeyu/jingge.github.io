@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电话号码输入</title>
+    <style>
+        body {
+            body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* 修改为居中对齐 */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .phone-container {
+            text-align: center;
+            margin-bottom: 10vh; /* 调整这个值可以改变垂直位置 */
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .blue-text {
+            color: blue; /* 设置文本颜色为蓝色 */
+            font-size: 24px; /* 设置字体大小 */
+            margin-bottom: 10px; /* 文本与输入框之间的间距 */
+        }
+        
+        #phone {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        #phone:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        
+        small {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <label for="phone">
+            输入你的电话号码:<br />
+            <small>格式: 123-456-7890</small>
+        </label>
+        
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required />
+    </div>
+    <div class="blue-text">
+        这是蓝色的纯文本文字。<br />
+        这段文本可以有多行，<br />
+        你可以在这里添加更多内容。<br />
+        每一行都将保持换行。
+    </div> <!-- 添加多行蓝色文本 -->
+</body>
+</html>
