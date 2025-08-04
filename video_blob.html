@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob Video Demo</title>
+    <style>
+        video {
+            width: 100%;
+            max-width: 600px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <video
+        id="videoPlayer"
+        controls
+        playsinline
+        webkit-playsinline
+    ></video>
+
+    <script>
+        // 1. 定义一个真实的 MP4 视频 URL（可以是你的服务器上的视频）
+        const videoUrl = "https://jinggeyu.github.io/jingge.github.io/movie2.mp4";
+
+        // 2. 使用 fetch 获取视频数据并转换成 Blob
+        fetch(videoUrl)
+            .then(response => response.blob()) // 获取 Blob 数据
+            .then(videoBlob => {
+                // 3. 生成 Blob URL
+                const blobUrl = URL.createObjectURL(videoBlob);
+                
+                // 4. 设置 video 的 src
+                const video = document.getElementById("videoPlayer");
+                video.src = blobUrl;
+
+                console.log("Blob URL:", blobUrl); // 在控制台查看生成的 blob:http://...
+            })
+            .catch(err => {
+                console.error("Failed to load video:", err);
+            });
+    </script>
+</body>
+</html>
